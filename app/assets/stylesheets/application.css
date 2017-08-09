@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+
+ /*require tree ensure that all css in app/assets/stylesheets directory are included in the application css*/
+ /*require self include all css in application .css */
