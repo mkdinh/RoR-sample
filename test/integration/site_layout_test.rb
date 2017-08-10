@@ -9,7 +9,10 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   	assert_select "a[href=?]", help_path
   	assert_select "a[href=?]", about_path
   	assert_select "a[href=?]", contact_path
+  	assert_select "a[href=?]", signup_path
   	# test for prescence of a particular link-URL combination specify can tag name a and attr href
+  	get contact_path
+  	assert_select 'title', full_title('Contact')
   end
   # end
 end
