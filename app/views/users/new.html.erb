@@ -1,3 +1,32 @@
-<%= provide(:title, 'Sign Up') %>
+﻿<%= provide(:title, 'Sign Up') %>
 <h1>Sign Up</h1>
-<p>Thig will be a signup page for new users</p>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@user, url: signup_path) do |f| %>
+         <%# f object calls for method corresponds to an HTML form element specifically designed to set an attribute of the @user object %>
+            <%= render 'shared/error_messages' %>
+        
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control'%>
+            <%# create html element necessary to sett name attr to @user %>
+
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+            
+            <%= f.label :password%>
+            <%= f.password_field :password, class: 'form-control' %>
+
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+            <%= f.submit 'Create my account', class: 'btn btn-primary'%>
+            <% end %>
+            <%# create a post object for ruby action on submit %>
+    </div>
+</div>
