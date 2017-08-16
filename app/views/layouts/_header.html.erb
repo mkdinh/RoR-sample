@@ -6,9 +6,26 @@
 				<li> <%= link_to 'Home', root_path %> </li>
 				<li> <%= link_to 'About', about_path %> </li>
 				<li> <%= link_to 'Help', help_path %> </li>
-				<li> <%= link_to 'Login','#' %> </li>
+				<% if loggedIn?	%>
+				<li><%= link_to 'Users', '#' %></li>
+				<li class='dropdown'>
+					<a href='#' class='dropdown-toggle' data-toggle='dropdown'>
+					Account <b class='caret'></b>
+					</a>
+					<ul class='dropdown-menu'>
+						<li><%= link_to 'Profile', curUser %></li>
+						<li><%= link_to 'Settings', '#' %></li>
+						<li class='divider'></li>
+						<li>
+							<%= link_to "Log out", logout_path, method: :delete %>
+						</li>
+					</ul>
+				</li>
+				<% else %>
+				<li> <%= link_to 'Log in', login_path %> </li>
 				<!-- link_to create a link with anchor tag a -->
 				<!-- first arguement is the link text, 2nd is the URL, 3rd is an options hash 'id:logo' -->
+				<% end %>
 			</ul>
 		</nav>
 	</div>
